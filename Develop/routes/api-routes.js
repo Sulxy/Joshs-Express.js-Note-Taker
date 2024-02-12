@@ -5,7 +5,7 @@ const fs = require("fs");
 
 // Route to index.html
 router.get('/api/notes', async (req, res) => {
-    const dbJson = JSON.parse(fs.readFileSync('./db/db.json', 'utf8'));
+    const dbJson = await JSON.parse(fs.readFileSync('./db/db.json', 'utf8'));
     res.json(dbJson);
 });
 
@@ -15,7 +15,7 @@ router.post('/api/notes', async (req, res) => {
     const newFeedback = {
         title: req.body.title,
         text: req.body.text,
-        id: uuidv4()
+        id: uuidv4(),
     };
     dbJson.push(newFeedback);
     fs.writeFileSync('./db/db.json', JSON.stringify(dbJson));
@@ -24,7 +24,7 @@ router.post('/api/notes', async (req, res) => {
 
 // Route for delete request
 router.delete('/api/notes/:id', (req, res) => {
-    let data = fs.readFileSync("db/db.json", "utf8");
+    let data = fs.readFileSync("./db/db.json", "utf8");
     const dataJSON =  JSON.parse(data);
     const newNotes = dataJSON.filter((note) => { 
       return note.id !== req.params.id;
