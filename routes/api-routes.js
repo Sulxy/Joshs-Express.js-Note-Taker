@@ -1,6 +1,6 @@
 // // Purpose: This file contains the routes for the api.
 const router = require("express").Router();
-const { v4: uuidv4 } = require("uuid");
+const uuidv1  = require("uuid/v1");
 const fs = require("fs");
 
 // // Route to index.html
@@ -15,7 +15,7 @@ router.post('/api/notes', async (req, res) => {
     const newFeedback = {
         title: req.body.title,
         text: req.body.text,
-        id: uuidv4(),
+        id: uuidv1(),
     };
     dbJson.push(newFeedback);
     fs.writeFileSync('db/db.json', JSON.stringify(dbJson));

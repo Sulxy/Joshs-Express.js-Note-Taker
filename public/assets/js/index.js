@@ -3,10 +3,9 @@ let noteTitle;
 let noteText;
 let saveNoteBtn;
 let newNoteBtn;
-let clearBtn;
 let noteList;
 
-if (window.location.pathname === './public/notes.html') {
+if (window.location.pathname === '/notes') {
   noteForm = document.querySelector('.note-form');
   noteTitle = document.querySelector('.note-title');
   noteText = document.querySelector('.note-textarea');
@@ -34,7 +33,7 @@ const getNotes = () =>
     method: 'GET',
     headers: {
       'Content-Type': 'application/json'
-    },
+    }
   });
 
 const saveNote = (note) =>
@@ -51,7 +50,7 @@ const deleteNote = (id) =>
     method: 'DELETE',
     headers: {
       'Content-Type': 'application/json'
-    },
+    }
   });
 
 const renderActiveNote = () => {
@@ -109,9 +108,8 @@ const handleNoteView = (e) => {
   renderActiveNote();
 };
 
-// Sets the activeNote to an empty object and allows the user to enter a new note
-// removed passed in event parameter in () to fix error
-const handleNewNoteView = () => {
+// Sets the activeNote to and empty object and allows the user to enter a new note
+const handleNewNoteView = (e) => {
   activeNote = {};
   show(clearBtn);
   renderActiveNote();
