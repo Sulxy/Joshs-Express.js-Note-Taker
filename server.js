@@ -6,7 +6,7 @@ const api_routes = require('./routes/api-routes.js');
 const app = express();
 const PORT = process.env.PORT || 3001;
 
-// Middleware 
+// Middleware setup
 app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
 app.use(express.static('public'));

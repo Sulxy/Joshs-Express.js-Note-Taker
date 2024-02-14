@@ -1,4 +1,4 @@
-// // Purpose: This file contains the routes for the api.
+// // This file contains the routes for the api.
 const router = require("express").Router();
 const uuidv1  = require("uuid/v1");
 const fs = require("fs");
