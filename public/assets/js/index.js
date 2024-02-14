@@ -6,7 +6,7 @@ let newNoteBtn;
 let clearBtn;
 let noteList;
 
-if (window.location.pathname === '/notes') {
+if (window.location.pathname === './public/notes.html') {
   noteForm = document.querySelector('.note-form');
   noteTitle = document.querySelector('.note-title');
   noteText = document.querySelector('.note-textarea');
@@ -34,7 +34,7 @@ const getNotes = () =>
     method: 'GET',
     headers: {
       'Content-Type': 'application/json'
-    }
+    },
   });
 
 const saveNote = (note) =>

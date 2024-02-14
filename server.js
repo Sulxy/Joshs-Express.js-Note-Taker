@@ -1,8 +1,8 @@
 // Purpose: This file is the main server file for the application.
 // It sets up the server and the routes for the application.
 const express = require('express');
-const html_routes = require('./routes/html_routes');
-const api_routes = require('./routes/api_routes');
+const html_routes = require('./routes/html-routes.js');
+const api_routes = require('./routes/api-routes.js');
 const PORT = process.env.PORT || 3001;
 const app = express();
 

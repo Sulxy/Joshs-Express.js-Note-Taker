@@ -1,17 +1,17 @@
-// Purpose: This file contains the routes for the api.
+// // Purpose: This file contains the routes for the api.
 const router = require("express").Router();
 const { v4: uuidv4 } = require("uuid");
 const fs = require("fs");
 
-// Route to index.html
+// // Route to index.html
 router.get('/api/notes', async (req, res) => {
-    const dbJson = await JSON.parse(fs.readFileSync('db/db.json', 'utf8'));
+    const dbJson = await JSON.parse(fs.readFileSync("db/db.json","utf8"));
     res.json(dbJson);
 });
 
-// Route to notes.html
+// // Route to notes.html
 router.post('/api/notes', async (req, res) => {
-    const dbJson = JSON.parse(fs.readFileSync('db/db.json', 'utf8'));
+    const dbJson = JSON.parse(fs.readFileSync("db/db.json","utf8"));
     const newFeedback = {
         title: req.body.title,
         text: req.body.text,
@@ -22,9 +22,9 @@ router.post('/api/notes', async (req, res) => {
     res.json(dbJson);
 });
 
-// Route for delete request
+// // Route for delete request
 router.delete('/api/notes/:id', (req, res) => {
-    let data = fs.readFileSync("db/db.json", "utf8");
+    let data = fs.readFileSync("db/db.json","utf8");
     const dataJSON =  JSON.parse(data);
     const newNotes = dataJSON.filter((note) => { 
       return note.id !== req.params.id;
